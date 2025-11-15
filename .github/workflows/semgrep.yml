@@ -1,0 +1,14 @@
+rules:
+  - id: no-eval
+    message: "Avoid using eval() — it can execute arbitrary code."
+    languages: ["javascript","html"]
+    severity: ERROR
+    patterns:
+      - pattern: eval($X)
+
+  - id: no-inline-event-handlers
+    message: "Avoid inline event handlers in HTML (e.g., onclick) — prefer external JS and proper sanitization."
+    languages: ["html"]
+    severity: WARNING
+    patterns:
+      - pattern-regex: '(on[a-z]+\\s*=)'
